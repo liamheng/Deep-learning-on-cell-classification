@@ -17,7 +17,7 @@ from keras.layers import Conv2D,MaxPooling2D,GlobalAveragePooling2D,GlobalMaxPoo
 from keras.utils import plot_model
 from keras.models import load_model
 ####Read Data
-Data=np.load('BinaryLabelDataSet.npz')
+Data=np.load('ExampleDataset.npz')
 X=Data['DataSetAugment']
 Y=Data['DataSetLabel']
 n_classes=np.unique(Y).shape[0]
