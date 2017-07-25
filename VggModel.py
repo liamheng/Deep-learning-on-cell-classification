@@ -8,7 +8,6 @@ You are free to modify and redistribute the script.
 import os
 import numpy as np
 import scipy.io as sio
-from sklearn.metrics import roc_auc_score
 import keras
 from keras.applications import *
 from keras.preprocessing.image import ImageDataGenerator
