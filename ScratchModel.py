@@ -25,6 +25,7 @@ X=X.reshape(X.shape+(1,))
 DataSet=X
 SubjectNumber=Y.shape[0]
 ####Data for training
+#np.random.seed(0)
 index=[]
 for group in np.unique(Y):
 	indices=np.random.choice(np.unique(np.where(Y==group)[0]), int(SubjectNumber/n_classes*0.8), replace=False)
