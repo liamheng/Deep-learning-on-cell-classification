@@ -88,9 +88,9 @@ def get_model(summary=False):
 	model.add(Flatten())
 	# FC layers group
 	model.add(Dense(1024, activation='relu', name='fc1'))
-	model.add(Dropout(.5))
+	model.add(Dropout(.3))
 	model.add(Dense(512, activation='relu', name='fc2'))
-	model.add(Dropout(.5))
+	model.add(Dropout(.3))
 	model.add(Dense(2, activation='softmax', name='fc3'))
 	return model
 ####Train model		
