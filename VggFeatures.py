@@ -1,5 +1,5 @@
 '''
-This script fine-tunes pre-trained Vgg models to classify two classes of cell
+This script extracts deep features of cell sequence with pre-trained Vgg models. Then SVM and XGboost are performed to classify two classes of cell.
 Author: Heng Li
 Email: lihengbit@foxmail.com
 Date: 07/25/2017
