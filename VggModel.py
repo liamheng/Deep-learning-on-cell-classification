@@ -1,5 +1,5 @@
 '''
-This script fine-tunes a pre-trained Vgg model to classify two classes of cell
+This script fine-tunes pre-trained Vgg models to classify two classes of cell
 Author: Heng Li
 Email: lihengbit@foxmail.com
 Date: 07/25/2017
