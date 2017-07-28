@@ -4,7 +4,7 @@ Deep learning models for cell classification
 ## Example data
 ExampleDataset.rar is the compressed file of ExampleDataset.npz, which contains 30 cell sequences for binary classification. For a cell video, it is represented by the contour sequence and then is zoomed to size of 224x224. Augmentation is performed to generate 216 data subjects from one sequence. Therefore the shape of the example dataset is 30x216x224x224.
 
-<img alt="scratch" src="images/Sequence.png" width='400'>  
+<img alt="scratch" src="images/Sequence.png" width='500'>  
 <sub><b>Figure 1: </b> Cell sequence to contour spectrum. </sub> 
 
 ## Deep learning frameworks
