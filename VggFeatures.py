@@ -39,9 +39,6 @@ def VggModel(modelname):
 		Entiremodel=VGG16(weights='imagenet')
 	elif modelname=='VGG19':
 		Entiremodel=VGG19(weights='imagenet')
-	if FixCNN:
-		for layer in Entiremodel.layers[:-3]:
-			layer.trainable = False
 	output=Dense(n_classes, activation='softmax', name='predictions',input_shape=Entiremodel.layers[-2].output_shape[1:])(Entiremodel.layers[-2].output)
 	model = Model(input= Entiremodel.input, output=[Entiremodel.layers[-3].output,Entiremodel.layers[-2].output])
 	return model
