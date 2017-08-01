@@ -33,12 +33,11 @@ index=np.sort(np.array(index).flatten())
 testindex=np.setdiff1d(range(SubjectNumber),index)	
 TrainX=DataSet[index]
 TrainY=Y[index]
-TestX=DataSet[testindex]
-TestY=Y[testindex]
+TestX=DataSet[testindex,0]
+TestY=Y[testindex,0]
 TrainX=TrainX.reshape(TrainX.shape[0]*TrainX.shape[1],224,224,3)
-TestX=TestX.reshape(TestX.shape[0]*TestX.shape[1],224,224,3)
 TrainY=keras.utils.to_categorical(TrainY.reshape(TrainY.shape[0]*TrainY.shape[1]))
-TestY=keras.utils.to_categorical(TestY.reshape(TestY.shape[0]*TestY.shape[1]))
+TestY=keras.utils.to_categorical(TestY)
 #####Build model
 def VggModel(modelname,fixlayer,FixCNN=True):
 	if modelname=='VGG16':
