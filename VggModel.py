@@ -51,7 +51,7 @@ def VggModel(modelname,fixlayer,FixCNN=True):
 		Entiremodel.layers[-3].trainable = False
 	elif fixlayer=='Softmax':	
 		Entiremodel.layers[-3].trainable = False
-		Entiremodel.layers[-4].trainable = False
+		Entiremodel.layers[-2].trainable = False
 	output=Dense(n_classes, activation='softmax', name='predictions',input_shape=Entiremodel.layers[-2].output_shape[1:])(Entiremodel.layers[-2].output)
 	model = Model(input= Entiremodel.input, output= output)
 	return model
