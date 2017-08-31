@@ -20,7 +20,7 @@ X=Data['DataSetAugment']
 Y=Data['DataSetLabel']
 n_classes=np.unique(Y).shape[0]
 X=X.reshape(X.shape+(1,))
-DataSet=np.concatenate((X,X,X),axis=3)
+DataSet=np.concatenate((X,X,X),axis=-1)
 SubjectNumber=Y.shape[0]
 ####Data for training
 #np.random.seed(0)
