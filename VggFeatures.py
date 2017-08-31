@@ -22,7 +22,7 @@ Data=np.load('ExampleDataset.npz')
 X=Data['DataSetAugment'][:,0]
 Y=Data['DataSetLabel'][:,0]
 X=X.reshape(X.shape+(1,))
-DataSet=np.concatenate((X,X,X),axis=3)
+DataSet=np.concatenate((X,X,X),axis=-1)
 SubjectNumber=Y.shape[0]
 ####Index for training and testing
 index=[]
