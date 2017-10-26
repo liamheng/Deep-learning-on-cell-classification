@@ -20,7 +20,6 @@ X=Data['DataSetAugment']
 Y=Data['DataSetLabel']
 n_classes=np.unique(Y).shape[0]
 X=X.reshape(X.shape+(1,))
-DataSet=np.concatenate((X,X,X),axis=-1)
 SubjectNumber=Y.shape[0]
 ####Data for training
 #np.random.seed(0)
@@ -31,19 +30,22 @@ for group in np.unique(Y):
 
 index=np.sort(np.array(index).flatten())
 testindex=np.setdiff1d(range(SubjectNumber),index)	
-TrainX=DataSet[index]
+TrainX=X[index]
 TrainY=Y[index]
-TestX=DataSet[testindex,0]
+TestX=X[testindex,0]
 TestY=Y[testindex,0]
-TrainX=TrainX.reshape(TrainX.shape[0]*TrainX.shape[1],224,224,3)
+TrainX=TrainX.reshape(TrainX.shape[0]*TrainX.shape[1],224,224,1)
 TrainY=keras.utils.to_categorical(TrainY.reshape(TrainY.shape[0]*TrainY.shape[1]))
 TestY=keras.utils.to_categorical(TestY)
 #####Build model
 def VggModel(modelname,fixlayer,FixCNN=True):
+	image_input=Input(shape=(224,224,1),name='image_input')
+	RGBInput=Conv2D(3, kernel_size=(1, 1), border_mode='same', input_shape=(224,224,1), activation='relu')(image_input)
+	Inputmodel = Model(input= image_input, output= RGBInput)	
 	if modelname=='VGG16':
-		Entiremodel=VGG16(weights='imagenet')
+		Entiremodel=VGG16(weights='imagenet',input_tensor=Inputmodel.output)
 	elif modelname=='VGG19':
-		Entiremodel=VGG19(weights='imagenet')
+		Entiremodel=VGG19(weights='imagenet',input_tensor=Inputmodel.output)
 	if FixCNN:
 		for layer in Entiremodel.layers[:-3]:
 			layer.trainable = False
