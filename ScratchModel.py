@@ -94,7 +94,7 @@ def get_model(summary=False):
 	return model
 ####Train model		
 model = get_model()	
-model.compile(loss='mean_squared_error', optimizer='sgd',metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='sgd',metrics=['accuracy'])
 earlyStopping=keras.callbacks.EarlyStopping(monitor='val_acc', patience=20, verbose=0, mode='auto')
 saveBestModel=keras.callbacks.ModelCheckpoint('./ScratchModel_best_weights.hdf5', monitor='val_acc', verbose=1, save_best_only=True, mode='auto')	
 history=model.fit(TrainX, TrainY,epochs=200,batch_size=100,verbose=1,callbacks=[saveBestModel,earlyStopping],validation_data=(TestX, TestY))
