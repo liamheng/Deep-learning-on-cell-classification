@@ -61,7 +61,7 @@ def VggModel(modelname,fixlayer,FixCNN=True):
 modelname='VGG16'
 fixlayer='FC2'
 model=VggModel(modelname,fixlayer)
-model.compile(loss='mean_squared_error', optimizer='sgd',metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer='sgd',metrics=['accuracy'])
 earlyStopping=keras.callbacks.EarlyStopping(monitor='val_acc', patience=20, verbose=0, mode='auto')
 saveBestModel=keras.callbacks.ModelCheckpoint(modelname+fixlayer+'_best_weights.hdf5', monitor='val_acc', verbose=1, save_best_only=True, mode='auto')	
 history=model.fit(TrainX, TrainY,epochs=100,batch_size=100,verbose=1,callbacks=[earlyStopping,saveBestModel],validation_data=(TestX, TestY))
