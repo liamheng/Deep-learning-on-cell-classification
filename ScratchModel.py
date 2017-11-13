@@ -52,7 +52,7 @@ def get_model(summary=False):
 							input_shape=input_shape))
 	# model.add(Conv2D(64, kernel_size=(3, 3), activation='relu',
 							# border_mode='same', name='conv1_2'))							
-	model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2),
+	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool1'))
 	# 2nd layer group
 	model.add(Conv2D(128, kernel_size=(3, 3), activation='relu',
@@ -61,28 +61,28 @@ def get_model(summary=False):
 							# border_mode='same', name='conv2_2'))
 	# model.add(Conv3D(128, 3, 3, 3, activation='relu',
 							# border_mode='same', name='conv2_3'))
-	model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2),
+	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool2'))
 	# 3rd layer group
 	model.add(Conv2D(256, kernel_size=(3, 3), activation='relu',
 							border_mode='same', name='conv3_1'))
 	# model.add(Conv3D(256, 3, 3, 3, activation='relu',
 							# border_mode='same', name='conv3_2'))
-	model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2),
+	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool3'))
 	# 4rd layer group
 	model.add(Conv2D(512, kernel_size=(3, 3), activation='relu',
 							border_mode='same', name='conv4_1'))
 	# model.add(Conv3D(256, 3, 3, 3, activation='relu',
 							# border_mode='same', name='conv3_2'))
-	model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2),
+	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool4'))	
 	# 5rd layer group
 	model.add(Conv2D(1024, kernel_size=(3, 3), activation='relu',
 							border_mode='same', name='conv5_1'))
 	# model.add(Conv3D(256, 3, 3, 3, activation='relu',
 							# border_mode='same', name='conv3_2'))
-	model.add(MaxPooling2D(pool_size=(3, 3), strides=(2, 2),
+	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool5'))	
 	model.add(Flatten())
 	# FC layers group
