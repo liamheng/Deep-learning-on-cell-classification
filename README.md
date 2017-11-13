@@ -9,7 +9,7 @@ ExampleDataset.rar is the compressed file of ExampleDataset.npz, which contains 
 
 ## Deep learning frameworks
 1. ScratchModel.py trains a CNN model from scratch for cell classification.
-<img alt="scratch" src="images/ScratchStructure.png" width='600'>  
+<img alt="scratch" src="images/Sequence.png" width='600'>  
 <sub><b>Figure 2: </b> Scratch model structure. </sub> 
 
 2. VggFeatures.py extracts deep features of cell sequence with pre-trained Vgg models. And then SVM and XGboost are performed.
