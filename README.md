@@ -16,6 +16,8 @@ ExampleDataset.rar is the compressed file of ExampleDataset.npz, which contains 
 
 <img alt="scratch" src="images/Feature.png" width='500'>  
 <sub><b>Figure 2: </b> CNN Feature structure. </sub> 
+
 3. VggModel.py fine-tunes pre-trained Vgg models to classify cells.
+
 <img alt="scratch" src="images/VGG.png" width='500'>  
 <sub><b>Figure 2: </b> Fine-tuning structure. </sub> 
