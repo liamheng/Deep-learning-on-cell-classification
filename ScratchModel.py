@@ -78,7 +78,7 @@ def get_model(summary=False):
 	model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2),
 						   border_mode='valid', name='pool4'))	
 	# 5rd layer group
-	model.add(Conv2D(1024, kernel_size=(3, 3), activation='relu',
+	model.add(Conv2D(512, kernel_size=(3, 3), activation='relu',
 							border_mode='same', name='conv5_1'))
 	# model.add(Conv3D(256, 3, 3, 3, activation='relu',
 							# border_mode='same', name='conv3_2'))
