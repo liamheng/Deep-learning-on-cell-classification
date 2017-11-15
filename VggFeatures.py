@@ -21,6 +21,7 @@ from keras.layers import Input, Dropout, Flatten, Dense
 Data=np.load('ExampleDataset.npz')
 X=Data['DataSetAugment'][:,0]
 Y=Data['DataSetLabel'][:,0]
+n_classes=np.unique(Y).shape[0]
 X=X.reshape(X.shape+(1,))
 DataSet=np.concatenate((X,X,X),axis=-1)
 SubjectNumber=Y.shape[0]
