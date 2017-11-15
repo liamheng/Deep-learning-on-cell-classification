@@ -1,3 +1,4 @@
+
 '''
 This script extracts deep features of cell sequence with pre-trained Vgg models. Then SVM and XGboost are performed to classify two classes of cell.
 Author: Heng Li
@@ -21,6 +22,7 @@ from keras.layers import Input, Dropout, Flatten, Dense
 Data=np.load('ExampleDataset.npz')
 X=Data['DataSetAugment'][:,0]
 Y=Data['DataSetLabel'][:,0]
+Y=Y.reshape(len(Y),1)
 n_classes=np.unique(Y).shape[0]
 X=X.reshape(X.shape+(1,))
 DataSet=np.concatenate((X,X,X),axis=-1)
