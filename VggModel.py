@@ -39,9 +39,6 @@ TrainY=keras.utils.to_categorical(TrainY.reshape(TrainY.shape[0]*TrainY.shape[1]
 TestY=keras.utils.to_categorical(TestY)
 #####Build model
 def VggModel(modelname,fixlayer,FixCNN=True):
-	image_input=Input(shape=(224,224,1),name='image_input')
-	RGBInput=Conv2D(3, kernel_size=(1, 1), border_mode='same', input_shape=(224,224,1), activation='relu')(image_input)
-	Inputmodel = Model(input= image_input, output= RGBInput)	
 	if modelname=='VGG16':
 		Entiremodel=VGG16(weights='imagenet',input_tensor=Inputmodel.output)
 	elif modelname=='VGG19':
@@ -54,9 +51,15 @@ def VggModel(modelname,fixlayer,FixCNN=True):
 	elif fixlayer=='Softmax':	
 		Entiremodel.layers[-3].trainable = False
 		Entiremodel.layers[-2].trainable = False
-	output=Dense(n_classes, activation='softmax', name='predictions',input_shape=Entiremodel.layers[-2].output_shape[1:])(Entiremodel.layers[-2].output)
-	model = Model(input= Entiremodel.input, output= output)
-	return model
+		
+	new_model = Sequential()
+	input_shape=(224,224,1)
+	new_model.add(Conv2D(3, kernel_size=(1, 1), border_mode='same', name='new_input', input_shape=input_shape, activation='relu'))		
+	for l in Entiremodel.layers[1:-1]:
+		new_model.add(l)
+		
+	new_model.add(Dense(n_classes, activation='softmax', name='predictions'))	
+	return new_model
 ####Train model	
 modelname='VGG16'
 fixlayer='FC2'
