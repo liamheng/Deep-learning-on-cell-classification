@@ -52,13 +52,13 @@ def VggModel(modelname,fixlayer,FixCNN=True):
 		Entiremodel.layers[-3].trainable = False
 		Entiremodel.layers[-2].trainable = False
 		
-	new_model = Sequential()
+	model = Sequential()
 	input_shape=(224,224,1)
-	new_model.add(Conv2D(3, kernel_size=(1, 1), border_mode='same', name='new_input', input_shape=input_shape, activation='relu'))		
+	model.add(Conv2D(3, kernel_size=(1, 1), border_mode='same', name='new_input', input_shape=input_shape, activation='relu'))		
 	for l in Entiremodel.layers[1:-1]:
-		new_model.add(l)
+		model.add(l)
 		
-	new_model.add(Dense(n_classes, activation='softmax', name='predictions'))	
+	model.add(Dense(n_classes, activation='softmax', name='predictions'))	
 	return new_model
 ####Train model	
 modelname='VGG16'
