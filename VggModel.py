@@ -40,9 +40,9 @@ TestY=keras.utils.to_categorical(TestY)
 #####Build model
 def VggModel(modelname,fixlayer,FixCNN=True):
 	if modelname=='VGG16':
-		Entiremodel=VGG16(weights='imagenet',input_tensor=Inputmodel.output)
+		Entiremodel=VGG16(weights='imagenet')
 	elif modelname=='VGG19':
-		Entiremodel=VGG19(weights='imagenet',input_tensor=Inputmodel.output)
+		Entiremodel=VGG19(weights='imagenet')
 	if FixCNN:
 		for layer in Entiremodel.layers[:-3]:
 			layer.trainable = False
