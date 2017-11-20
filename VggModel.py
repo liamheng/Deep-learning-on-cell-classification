@@ -59,7 +59,7 @@ def VggModel(modelname,fixlayer,FixCNN=True):
 		model.add(l)
 		
 	model.add(Dense(n_classes, activation='softmax', name='predictions'))	
-	return new_model
+	return model
 ####Train model	
 modelname='VGG16'
 fixlayer='FC2'
