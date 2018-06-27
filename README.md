@@ -1,6 +1,6 @@
 # Deep-learning-models
 These files is to perform deep learning models on cell classification. The packages of Keras, Tensorflow, os, xgboost and sklearn are necessary to use the code.
-Please uncompress the file of ExampleDataset.rar, and put the output ExampleDataset.npz in the same folder of the .np files.
+Please uncompress the file of ExampleDataset.rar, and put the output ExampleDataset.npz in the same folder of the .py files.
 
 ## Example data
 ExampleDataset.rar is the compressed file of ExampleDataset.npz, which contains 30 cell sequences for binary classification. For a cell video, it is represented by the contour sequence and then is zoomed to size of 224x224. Augmentation is performed to generate 216 data subjects from one sequence. Therefore the shape of the example dataset is 30x216x224x224.
